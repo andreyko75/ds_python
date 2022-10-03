@@ -5,6 +5,3 @@ while o_money <= 3000:
     o_money *= 1.08
     i += 1
 print(o_money, i)
-
-
-
