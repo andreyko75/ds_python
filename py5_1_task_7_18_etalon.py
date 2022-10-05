@@ -26,17 +26,18 @@
 # print(exchange(rub=1000))
 # # ValueError: Not enough arguments
 
-def exchange(**qwargs):
-    if len(qwargs) == 1:
-        raise ValueError('Not enough arguments')
-    elif len(qwargs) == 3:
-        raise ValueError('Too many arguments')
-    rub_get = qwargs.get('rub', qwargs.get('rate', 1) * qwargs.get('usd', 1))
-    usd_get = qwargs.get('usd', qwargs.get('rub', 1) / qwargs.get('rate', 1))
-    rate_get = qwargs.get('rate', qwargs.get('rub', 1) / qwargs.get('usd', 1))
-    return (rub_get + usd_get + rate_get - sum(qwargs.values()))
+def exchange(usd=None, rub=None, rate=None):
+    check = [usd, rub, rate].count(None)
+    check_lst = ['Too many arguments', None, 'Not enough arguments']
+    if check != 1: raise ValueError(check_lst[check])
+    if usd is None:
+        usd = rub / rate
+        return usd
+    if rub is None:
+        rub = usd * rate
+        return rub
+    if rate is None:
+        rate = rub / usd
+        return rate
 
-
-print(exchange(rub=1000, rate=85))
-
-
+print(exchange(usd=100, rate=85))
