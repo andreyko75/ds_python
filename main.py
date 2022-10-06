@@ -1,3 +1,14 @@
-langs = ['Python', 'SQL', 'Machine Learning', 'Statistics']
-print(*langs,sep=',')
+def sum_lst(lst):
+    # Выводим текущее значение lst
+    print(lst)
+    # Задаём условие выхода из рекурсии
+    if len(lst) == 0: return 0
+    # Во всех других случаях возвращаем
+    # сумму первого элемента списка
+    # и результат суммирования оставшихся
+    return lst[0] + sum_lst(lst[1:])
+
+
+my_lst = [10, 21, 24, 12]
+print(sum_lst(my_lst))
 
