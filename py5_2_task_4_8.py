@@ -23,7 +23,7 @@
 # Наконец, проверьте дату на корректность. Если дата неправильная, верните ошибку
 # ValueError("Invalid Date!"). Для этого вам пригодится функция check_date из предыдущего задания.
 #
-ddef register(surname, name, date, middle_name=None, registry=None):
+def register(surname, name, date, middle_name=None, registry=None):
 
     def check_date(day, month, year):
         tru_date = []
