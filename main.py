@@ -1,14 +1,10 @@
-def sum_lst(lst):
-    # Выводим текущее значение lst
-    print(lst)
-    # Задаём условие выхода из рекурсии
-    if len(lst) == 0: return 0
-    # Во всех других случаях возвращаем
-    # сумму первого элемента списка
-    # и результат суммирования оставшихся
-    return lst[0] + sum_lst(lst[1:])
+names = ['Ivan', 'Nikita', 'Simon', 'Margarita', 'Vasilisa', 'Kim']
+# Отбираем имена из пяти и более букв
+long_names = filter(lambda x: len(x) >= 5, names)
+print(list(long_names))
+# Все отобранные имена переводим в верхний регистр и считаем число букв А в них
+# Результат сохраняем в виде кортежа (имя, число букв "A")
+count_a = map(lambda x: [x, x.upper().count('A')], long_names)
+# Переводим объект map в list и печатаем его
 
-
-my_lst = [10, 21, 24, 12]
-print(sum_lst(my_lst))
-
+print(list(count_a))
