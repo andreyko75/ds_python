@@ -38,7 +38,7 @@ def register(surname, name, date, middle_name=None, registry=None):
     day, month, year = date
     if check_date(day, month, year) == False: raise ValueError('Invalid Date!')
     if registry == None: return [(surname, name, middle_name, day, month, year)]
-    reg.append((surname, name, middle_name, day, month, year))
+    registry.append((surname, name, middle_name, day, month, year))
     return registry
 
 reg=[]
