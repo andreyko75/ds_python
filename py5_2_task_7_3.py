@@ -1,9 +1,7 @@
-# Из модуля time импортируем функцию time
-from time import time
-def time_decorator(func):
+def logger(name):
     def decorated_func(*args, **kwargs):
         # Получаем время на момент начала вычисления
-        start = time()
+        print(name._name_),': Function root started'
         result = func(*args, **kwargs)
         # Получаем время на момент окончания вычисления
         end = time()
@@ -14,14 +12,20 @@ def time_decorator(func):
         return result
     return decorated_func
 
-@time_decorator
-def root(value, n=2):
-    result = value ** (1 / n)
-    return result
+# @time_decorator
+# def root(value, n=2):
+#     result = value ** (1 / n)
+#     return result
 
-print(root(81))
-print(root(1002))
-print(root(39393))
-print(root(83331))
-print(root(81444))
 
+@logger('MainLogger')
+def root(val, n=2):
+    res = val ** (1 / n)
+    return res
+
+
+print(root(25))
+# MainLogger: Function root started
+# MainLogger: Function root finished
+# 5.0
+wswswdx
