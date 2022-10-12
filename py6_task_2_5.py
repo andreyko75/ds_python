@@ -15,7 +15,7 @@ text_example = "A beginning is the time for taking the most delicate " \
                " the planet known as Dune, is forever his place."
 
 def get_unique_words(text):
-    return sorted(list(set((re.sub(r'[^\w\s]', '', text)).split(' '))))
+    return sorted(list(set((re.sub(r'[^\w\s]', '', text.lower())).split(' '))))
 
 
 print(get_unique_words(text_example))
