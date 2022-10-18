@@ -19,10 +19,20 @@ tasks = [(36871, 'office', False),
          (33850, 'office', False)]
 def task_manager(tasks):
     tasks = sorted(tasks, key=lambda x: x[2], reverse=True)
-    d=defaultdict(list)
+    d=defaultdict(deque)
     for x, y, z in tasks:
-        d[y].append((x,z))
+        d[y].append((x))
+    for y,x in d.items():
+        print()
+        z=deque(x)
+        d[y].clear()
+        d[y].append(z)
+    d=sorted(d.items())
     print (d)
+    return(d)
+---
+
+
 
 
 
